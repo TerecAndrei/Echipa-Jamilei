@@ -1,16 +1,19 @@
-package pizzashop.service;
+package pizzashop.gui;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import pizzashop.model.PaymentType;
+import pizzashop.service.PaymentOperation;
+import pizzashop.service.PizzaService;
 
 import java.util.Optional;
 
-public class PaymentAlert implements PaymentOperation {
+//TODO: Moved from the service repository to gui repository
+public class PaymentAlertGUI implements PaymentOperation {
     private PizzaService service;
 
-    public PaymentAlert(PizzaService service){
-        this.service=service;
+    public PaymentAlertGUI(PizzaService service) {
+        this.service = service;
     }
 
     @Override
@@ -20,6 +23,7 @@ public class PaymentAlert implements PaymentOperation {
         System.out.println("Please insert your card!");
         System.out.println("--------------------------");
     }
+
     @Override
     public void cashPayment() {
         System.out.println("--------------------------");
@@ -27,15 +31,17 @@ public class PaymentAlert implements PaymentOperation {
         System.out.println("Please show the cash...!");
         System.out.println("--------------------------");
     }
+
     @Override
     public void cancelPayment() {
         System.out.println("--------------------------");
         System.out.println("Payment choice needed...");
         System.out.println("--------------------------");
     }
-      public void showPaymentAlert(int tableNumber, double totalAmount ) {
+
+    public void showPaymentAlert(int tableNumber, double totalAmount) {
         Alert paymentAlert = new Alert(Alert.AlertType.CONFIRMATION);
-        paymentAlert.setTitle("Payment for Table "+tableNumber);
+        paymentAlert.setTitle("Payment for Table " + tableNumber);
         paymentAlert.setHeaderText("Total amount: " + totalAmount);
         paymentAlert.setContentText("Please choose payment option");
         ButtonType cardPayment = new ButtonType("Pay by Card");
@@ -45,12 +51,12 @@ public class PaymentAlert implements PaymentOperation {
         Optional<ButtonType> result = paymentAlert.showAndWait();
         if (result.get() == cardPayment) {
             cardPayment();
-            service.addPayment(tableNumber, PaymentType.Card,totalAmount);
+            service.addPayment(tableNumber, PaymentType.Card, totalAmount);
         } else if (result.get() == cashPayment) {
             cashPayment();
-            service.addPayment(tableNumber, PaymentType.Cash,totalAmount);
+            service.addPayment(tableNumber, PaymentType.Cash, totalAmount);
         } else if (result.get() == cancel) {
-             cancelPayment();
+            cancelPayment();
         } else {
             cancelPayment();
         }

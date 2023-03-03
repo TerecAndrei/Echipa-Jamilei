@@ -8,9 +8,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import pizzashop.gui.PaymentAlertGUI;
 import pizzashop.model.MenuDataModel;
-import pizzashop.gui.OrdersGUI;
-import pizzashop.service.PaymentAlert;
 import pizzashop.service.PizzaService;
 
 import java.util.Calendar;
@@ -103,7 +102,7 @@ public class OrdersGUIController {
             System.out.println("Table: " + tableNumber);
             System.out.println("Total: " + getTotalAmount());
             System.out.println("--------------------------");
-            PaymentAlert pay = new PaymentAlert(service);
+            PaymentAlertGUI pay = new PaymentAlertGUI(service);
             pay.showPaymentAlert(tableNumber, this.getTotalAmount());
         });
     }

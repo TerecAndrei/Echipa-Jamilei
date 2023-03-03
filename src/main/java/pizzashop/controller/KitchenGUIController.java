@@ -48,6 +48,10 @@ public class KitchenGUIController {
         //Controller for Cook Button
         cook.setOnAction(event -> {
             selectedOrder = kitchenOrdersList.getSelectionModel().getSelectedItem();
+            if(selectedOrder == null) {
+                //TODO: Eroare daca se apasa butonul fara sa fie selectat un item
+                return;
+            }
             kitchenOrdersList.getItems().remove(selectedOrder);
             kitchenOrdersList.getItems().add(selectedOrder.toString()
                      .concat(" Cooking started at: ").toUpperCase()
@@ -56,6 +60,10 @@ public class KitchenGUIController {
         //Controller for Ready Button
         ready.setOnAction(event -> {
             selectedOrder = kitchenOrdersList.getSelectionModel().getSelectedItem();
+            if(selectedOrder == null) {
+                //TODO: Eroare daca se apasa butonul fara sa fie selectat un item
+                return;
+            }
             kitchenOrdersList.getItems().remove(selectedOrder);
             extractedTableNumberString = selectedOrder.toString().subSequence(5, 6).toString();
             extractedTableNumberInteger = Integer.valueOf(extractedTableNumberString);

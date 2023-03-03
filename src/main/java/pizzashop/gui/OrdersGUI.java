@@ -17,8 +17,8 @@ public class OrdersGUI {
         return tableNumber;
     }
     public void setTableNumber(int tableNumber) { this.tableNumber = tableNumber; }
-    private PizzaService service;
 
+    //TODO: Service field is not used and should not be in the GUI
     public void displayOrdersForm(PizzaService service){
      VBox vBoxOrders = null;
         try {
