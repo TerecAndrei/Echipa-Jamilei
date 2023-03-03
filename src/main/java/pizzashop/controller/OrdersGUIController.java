@@ -108,6 +108,8 @@ public class OrdersGUIController {
     }
 
     public void initialize(){
+        //TODO:disable place order while there is no item selected
+        placeOrder.setDisable(true);
 
         //populate table view with menuData from OrderGUI
         table.setEditable(true);
@@ -133,6 +135,9 @@ public class OrdersGUIController {
 
         //Controller for Add to order Button
         addToOrder.setOnAction(event -> {
+            //TODO:disable place order while there is no item selected
+            placeOrder.setDisable(false);
+
             orderTable.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<MenuDataModel>(){
             @Override
             public void changed(ObservableValue<? extends MenuDataModel> observable, MenuDataModel oldValue, MenuDataModel newValue){
