@@ -2,6 +2,7 @@ package pizzashop.controller;
 
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -9,8 +10,9 @@ import javafx.scene.control.ListView;
 import java.util.Calendar;
 
 public class KitchenGUIController {
+    //TODO: Missing generic
     @FXML
-    private ListView kitchenOrdersList;
+    private ListView<String> kitchenOrdersList;
     @FXML
     public Button cook;
     @FXML
@@ -19,32 +21,16 @@ public class KitchenGUIController {
     public static  ObservableList<String> order = FXCollections.observableArrayList();
     private Object selectedOrder;
     private Calendar now = Calendar.getInstance();
-    private String extractedTableNumberString = new String();
+    //TODO: No need to call new String(). "" is enough
+    private String extractedTableNumberString = "";
     private int extractedTableNumberInteger;
-    //thread for adding data to kitchenOrderList
-    public  Thread addOrders = new Thread(new Runnable() {
-        @Override
-        public void run() {
-            while (true) {
-                Platform.runLater(new Runnable() {
-                    @Override
-                    public void run() {
-                        kitchenOrdersList.setItems(order);
-                        }
-                });
-                try {
-                    Thread.sleep(100);
-                  } catch (InterruptedException ex) {
-                    break;
-                }
-            }
-        }
-    });
 
     public void initialize() {
-        //starting thread for adding data to kitchenOrderList
-        addOrders.setDaemon(true);
-        addOrders.start();
+        //TODO: Updates to the list where made using a thread with busy waiting. Changed to use the observer pattern
+        kitchenOrdersList.setItems(order);
+        order.addListener((ListChangeListener<? super String>) change -> {
+            kitchenOrdersList.setItems(order);
+        });
         //Controller for Cook Button
         cook.setOnAction(event -> {
             selectedOrder = kitchenOrdersList.getSelectionModel().getSelectedItem();
