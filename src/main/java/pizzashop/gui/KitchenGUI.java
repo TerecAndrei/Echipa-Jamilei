@@ -12,7 +12,8 @@ import java.io.IOException;
 import java.util.Optional;
 
 public class KitchenGUI {
-    public void KitchenGUI() {
+    //TODO: This function was called KitchenGUI. This is not corect
+    public void displayKitchenWindow() {
         VBox vBoxKitchen = null;
 
         try {
@@ -42,7 +43,7 @@ public class KitchenGUI {
                 }
             }
 
-            });
+        });
         stage.setAlwaysOnTop(false);
         stage.setScene(new Scene(vBoxKitchen));
         stage.show();

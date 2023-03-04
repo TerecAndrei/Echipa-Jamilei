@@ -58,7 +58,7 @@ public class MainGUIController {
 
     public void setService(PizzaService service) {
         this.service = service;
-        tableHandlers();
+        //TODO: The tableHandlers function should be called in the initialize method, not here
     }
 
     private void tableHandlers() {
@@ -99,6 +99,7 @@ public class MainGUIController {
 
 
     public void initialize() {
+        tableHandlers();
 
         help.setOnAction((ActionEvent event) -> {
             Stage stage = new Stage();
