@@ -26,7 +26,7 @@ public class KitchenGUIController {
     private int extractedTableNumberInteger;
 
     public void initialize() {
-        //TODO: Updates to the list where made using a thread with busy waiting. Changed to use the observer pattern
+        //TODO: Updates to the list were made using a thread with busy waiting. Changed to use the observer pattern
         kitchenOrdersList.setItems(order);
         order.addListener((ListChangeListener<? super String>) change -> {
             kitchenOrdersList.setItems(order);
