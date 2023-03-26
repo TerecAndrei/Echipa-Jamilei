@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class PaymentRepository {
+public class PaymentRepository implements IPaymentRepository {
     private static String filename = "data/payments.txt";
     private List<Payment> paymentList;
 
@@ -47,11 +47,13 @@ public class PaymentRepository {
         return item;
     }
 
+    @Override
     public void add(Payment payment){
         paymentList.add(payment);
         writeAll();
     }
 
+    @Override
     public List<Payment> getAll(){
         return paymentList;
     }
