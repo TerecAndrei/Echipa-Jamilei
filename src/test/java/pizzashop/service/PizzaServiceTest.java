@@ -1,9 +1,6 @@
 package pizzashop.service;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.function.Executable;
 import org.junit.jupiter.params.provider.ValueSource;
 import pizzashop.model.PaymentType;
@@ -21,10 +18,6 @@ class PizzaServiceTest {
     void setUp() {
         paymentRepositoryMock = new PaymentRepositoryMock();
         service = new PizzaService(new MenuRepository(), paymentRepositoryMock);
-    }
-
-    @AfterEach
-    void tearDown() {
     }
 
     @Test
