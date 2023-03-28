@@ -33,8 +33,8 @@ addPayment(int table, PaymentType type, double amount)</pre>
 </td></tr><tr><td><span class="label">#:</span></td><td><span class="label">Step actions:</span></td><td><span class="label">Expected Results:</span></td></tr><tr><td width="5">1</td><td></td><td></td></tr><tr><td width="20%" valign="top"><span class="label">Execution type:</span></td><td colspan="3">Manual</td></tr>
 <tr><td width="20%" valign="top"><span class="label">Estimated exec. duration (min):</span></td><td colspan="3"></td></tr>
 <tr><td width="20%" valign="top"><span class="label">Importance:</span></td><td colspan="3">Medium</td></tr>
-<tr><td colspan="4"></td></tr><tr><td > name of the autotest class:</td><td  colspan = "3" ></td></tr>
-<tr><td > name of the test method:</td><td  colspan = "3" ></td></tr>
+<tr><td colspan="4"></td></tr><tr><td > name of the autotest class:</td><td  colspan = "3" >PizzaServiceTest</td></tr>
+<tr><td > name of the test method:</td><td  colspan = "3" >addPayment_valid_01</td></tr>
 <tr><td width="20%" valign="top"><span class="label">Requirements</span><td colspan="3">tair3024_F01:  tair3024_F01 [Version : 1]<br /></td></tr>
 <tr><td width="20%" valign="top"><span class="label">Keywords:</span></td><td colspan="3">&nbsp;None<br/></td></tr>
 </table>
@@ -47,12 +47,12 @@ addPayment(int table, PaymentType type, double amount);</pre>
 <p>Se testeaza&nbsp;&nbsp;adaugarea unei plati cu numarul mesei invalid (table&lt;=0 sau table&gt;1000)</p>
 </td></tr><tr><td colspan="4"><span class="label">Preconditions:</span><br /><p>table&lt;=0</p>
 
-<p>0&lt;amount</p>
+<p>&nbsp;</p>
 </td></tr><tr><td width="20%" valign="top"><span class="label">Execution type:</span></td><td colspan="3">Manual</td></tr>
 <tr><td width="20%" valign="top"><span class="label">Estimated exec. duration (min):</span></td><td colspan="3"></td></tr>
 <tr><td width="20%" valign="top"><span class="label">Importance:</span></td><td colspan="3">Medium</td></tr>
-<tr><td colspan="4"></td></tr><tr><td > name of the autotest class:</td><td  colspan = "3" ></td></tr>
-<tr><td > name of the test method:</td><td  colspan = "3" ></td></tr>
+<tr><td colspan="4"></td></tr><tr><td > name of the autotest class:</td><td  colspan = "3" >PizzaServiceTest</td></tr>
+<tr><td > name of the test method:</td><td  colspan = "3" >addPayment_invalid_01</td></tr>
 <tr><td width="20%" valign="top"><span class="label">Requirements</span><td colspan="3">tair3024_F01:  tair3024_F01 [Version : 1]<br /></td></tr>
 <tr><td width="20%" valign="top"><span class="label">Keywords:</span></td><td colspan="3">&nbsp;None<br/></td></tr>
 </table>
@@ -63,12 +63,12 @@ addPayment(int table, PaymentType type, double amount);</pre>
 addPayment(int table, PaymentType type, double amount);</pre>
 
 <p>Se testeaza adaugarea unei plati cu valori valide pentru table,type si amount.</p>
-</td></tr><tr><td colspan="4"><span class="label">Preconditions:</span><br /><p>table=1, type=Cash, amount=1 (TC1-ECP)</p>
+</td></tr><tr><td colspan="4"><span class="label">Preconditions:</span><br /><p>table=2, type=Cash, amount=10&nbsp;</p>
 </td></tr><tr><td width="20%" valign="top"><span class="label">Execution type:</span></td><td colspan="3">Manual</td></tr>
 <tr><td width="20%" valign="top"><span class="label">Estimated exec. duration (min):</span></td><td colspan="3"></td></tr>
 <tr><td width="20%" valign="top"><span class="label">Importance:</span></td><td colspan="3">Medium</td></tr>
-<tr><td colspan="4"></td></tr><tr><td > name of the autotest class:</td><td  colspan = "3" ></td></tr>
-<tr><td > name of the test method:</td><td  colspan = "3" ></td></tr>
+<tr><td colspan="4"></td></tr><tr><td > name of the autotest class:</td><td  colspan = "3" >PizzaServiceTest</td></tr>
+<tr><td > name of the test method:</td><td  colspan = "3" >addPayment_valid_02</td></tr>
 <tr><td width="20%" valign="top"><span class="label">Requirements</span><td colspan="3">tair3024_F01:  tair3024_F01 [Version : 1]<br /></td></tr>
 <tr><td width="20%" valign="top"><span class="label">Keywords:</span></td><td colspan="3">&nbsp;None<br/></td></tr>
 </table>
@@ -79,12 +79,12 @@ addPayment(int table, PaymentType type, double amount);</pre>
 addPayment(int table, PaymentType type, double amount);</pre>
 
 <p>Testam adaugarea unui payment cu valoare invalida pentru amount (amount&lt;=0)</p>
-</td></tr><tr><td colspan="4"><span class="label">Preconditions:</span><br /><p>table=1000, type=Cash, amount=0 (TC_3_EC)</p>
+</td></tr><tr><td colspan="4"><span class="label">Preconditions:</span><br /><p>table=1000, type=Cash, amount=0&nbsp;</p>
 </td></tr><tr><td width="20%" valign="top"><span class="label">Execution type:</span></td><td colspan="3">Manual</td></tr>
 <tr><td width="20%" valign="top"><span class="label">Estimated exec. duration (min):</span></td><td colspan="3"></td></tr>
 <tr><td width="20%" valign="top"><span class="label">Importance:</span></td><td colspan="3">Medium</td></tr>
-<tr><td colspan="4"></td></tr><tr><td > name of the autotest class:</td><td  colspan = "3" ></td></tr>
-<tr><td > name of the test method:</td><td  colspan = "3" ></td></tr>
+<tr><td colspan="4"></td></tr><tr><td > name of the autotest class:</td><td  colspan = "3" >PizzaServiceTest</td></tr>
+<tr><td > name of the test method:</td><td  colspan = "3" >addPayment_invalid_02</td></tr>
 <tr><td width="20%" valign="top"><span class="label">Requirements</span><td colspan="3">tair3024_F01:  tair3024_F01 [Version : 1]<br /></td></tr>
 <tr><td width="20%" valign="top"><span class="label">Keywords:</span></td><td colspan="3">&nbsp;None<br/></td></tr>
 </table>
