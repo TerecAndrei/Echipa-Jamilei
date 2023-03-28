@@ -64,7 +64,7 @@ class PizzaServiceTest {
     private static Stream<Arguments> invalidPayments() {
         //int table, PaymentType type, double amount, String expectedErrorMessage
         return Stream.of(arguments(0, PaymentType.Card, 2.5, "Invalid table"), //ECP
-                arguments(999, PaymentType.Cash, 0, "Invalid amount"), //ECP si BVA la table=999
+                arguments(1000, PaymentType.Cash, 0, "Invalid amount"), //ECP si BVA la table=999
                 arguments(1001, PaymentType.Card, 10.35, "Invalid table") //ECP si BVA la table=1001
         );
     }
