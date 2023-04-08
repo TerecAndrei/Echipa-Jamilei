@@ -5,10 +5,14 @@ import org.junit.jupiter.api.function.Executable;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import pizzashop.model.Payment;
 import pizzashop.model.PaymentType;
 import pizzashop.repository.MenuRepository;
 import pizzashop.repository.PaymentRepositoryMock;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.params.provider.Arguments.arguments;
@@ -51,6 +55,32 @@ class PizzaServiceTest {
         Executable test = () -> service.addPayment(table, type, amount);
         //Assert test
         Assertions.assertThrows(RuntimeException.class, test, expectedErrorMessage);
+    }
+
+
+    @ParameterizedTest
+    @MethodSource("testCasesGetTotal")
+    void getTotal(List<Payment> payments, PaymentType paymentType, double expectedTotal) {
+        //Arrange test
+        paymentRepositoryMock.setPayments(payments);
+
+        //Act test
+        double actualTotal = service.getTotalAmount(paymentType);
+
+        //Assert test
+        Assertions.assertEquals(expectedTotal, actualTotal);
+    }
+
+    private static Stream<Arguments> testCasesGetTotal() {
+        Payment p1 = new Payment(1,PaymentType.Card, 20);
+        Payment p2 = new Payment(1,PaymentType.Cash, 50);
+        Payment p3 = new Payment(1,PaymentType.Card, 70);
+        //int table, PaymentType type, double amount
+        return Stream.of(arguments(List.of(), PaymentType.Cash, 0),
+                arguments(null, PaymentType.Cash, 0),
+                arguments(List.of(p1,p2,p3), PaymentType.Card, 90)
+
+        );
     }
 
     private static Stream<Arguments> validPayments() {

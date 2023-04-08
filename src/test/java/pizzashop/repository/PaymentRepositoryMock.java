@@ -16,4 +16,8 @@ public class PaymentRepositoryMock implements IPaymentRepository{
     public List<Payment> getAll() {
         return payments;
     }
+
+    public void setPayments(List<Payment> payments) {
+        this.payments = payments;
+    }
 }
