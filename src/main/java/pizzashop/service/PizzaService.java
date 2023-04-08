@@ -43,7 +43,9 @@ public class PizzaService {
             return total;
         }
         for (Payment p : l) {
-            if (p.getType().equals(type)) total += p.getAmount();
+            if (p.getType().equals(type)) {
+                total += p.getAmount();
+            }
         }
         return total;
     }
