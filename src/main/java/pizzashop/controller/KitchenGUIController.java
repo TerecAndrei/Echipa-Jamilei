@@ -1,12 +1,12 @@
 package pizzashop.controller;
 
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+
 import java.util.Calendar;
 
 public class KitchenGUIController {
@@ -18,9 +18,9 @@ public class KitchenGUIController {
     @FXML
     public Button ready;
 
-    public static  ObservableList<String> order = FXCollections.observableArrayList();
+    public static ObservableList<String> order = FXCollections.observableArrayList();
     private Object selectedOrder;
-    private Calendar now = Calendar.getInstance();
+    private final Calendar now = Calendar.getInstance();
     //TODO: No need to call new String(). "" is enough
     private String extractedTableNumberString = "";
     private int extractedTableNumberInteger;
@@ -34,19 +34,19 @@ public class KitchenGUIController {
         //Controller for Cook Button
         cook.setOnAction(event -> {
             selectedOrder = kitchenOrdersList.getSelectionModel().getSelectedItem();
-            if(selectedOrder == null) {
+            if (selectedOrder == null) {
                 //TODO: Eroare daca se apasa butonul fara sa fie selectat un item
                 return;
             }
             kitchenOrdersList.getItems().remove(selectedOrder);
             kitchenOrdersList.getItems().add(selectedOrder.toString()
-                     .concat(" Cooking started at: ").toUpperCase()
-                     .concat(now.get(Calendar.HOUR)+":"+now.get(Calendar.MINUTE)));
+                    .concat(" Cooking started at: ").toUpperCase()
+                    .concat(now.get(Calendar.HOUR) + ":" + now.get(Calendar.MINUTE)));
         });
         //Controller for Ready Button
         ready.setOnAction(event -> {
             selectedOrder = kitchenOrdersList.getSelectionModel().getSelectedItem();
-            if(selectedOrder == null) {
+            if (selectedOrder == null) {
                 //TODO: Eroare daca se apasa butonul fara sa fie selectat un item
                 return;
             }
@@ -54,7 +54,7 @@ public class KitchenGUIController {
             extractedTableNumberString = selectedOrder.toString().subSequence(5, 6).toString();
             extractedTableNumberInteger = Integer.valueOf(extractedTableNumberString);
             System.out.println("--------------------------");
-            System.out.println("Table " + extractedTableNumberInteger +" ready at: " + now.get(Calendar.HOUR)+":"+now.get(Calendar.MINUTE));
+            System.out.println("Table " + extractedTableNumberInteger + " ready at: " + now.get(Calendar.HOUR) + ":" + now.get(Calendar.MINUTE));
             System.out.println("--------------------------");
         });
     }

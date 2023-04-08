@@ -5,14 +5,13 @@ import pizzashop.model.Payment;
 import pizzashop.model.PaymentType;
 import pizzashop.repository.IPaymentRepository;
 import pizzashop.repository.MenuRepository;
-import pizzashop.repository.PaymentRepository;
 
 import java.util.List;
 
 public class PizzaService {
 
-    private MenuRepository menuRepo;
-    private IPaymentRepository payRepo;
+    private final MenuRepository menuRepo;
+    private final IPaymentRepository payRepo;
 
     public PizzaService(MenuRepository menuRepo, IPaymentRepository payRepo) {
         this.menuRepo = menuRepo;
@@ -37,11 +36,14 @@ public class PizzaService {
     public double getTotalAmount(PaymentType type) {
         double total = 0.0f;
         List<Payment> l = getPayments();
-        if (l == null) return total;
-        if (l.isEmpty()) return total;
+        if (l == null) {
+            return total;
+        }
+        if (l.isEmpty()) {
+            return total;
+        }
         for (Payment p : l) {
-            if (p.getType().equals(type))
-                total += p.getAmount();
+            if (p.getType().equals(type)) total += p.getAmount();
         }
         return total;
     }

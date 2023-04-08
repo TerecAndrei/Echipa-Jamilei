@@ -10,7 +10,7 @@ import java.util.Optional;
 
 //TODO: Moved from the service repository to gui repository
 public class PaymentAlertGUI implements PaymentOperation {
-    private PizzaService service;
+    private final PizzaService service;
 
     public PaymentAlertGUI(PizzaService service) {
         this.service = service;

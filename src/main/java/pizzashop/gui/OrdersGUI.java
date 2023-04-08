@@ -13,38 +13,42 @@ import java.io.IOException;
 
 public class OrdersGUI {
     protected int tableNumber;
+
     public int getTableNumber() {
         return tableNumber;
     }
-    public void setTableNumber(int tableNumber) { this.tableNumber = tableNumber; }
+
+    public void setTableNumber(int tableNumber) {
+        this.tableNumber = tableNumber;
+    }
 
     //TODO: Service field is not used and should not be in the GUI
-    public void displayOrdersForm(PizzaService service){
-     VBox vBoxOrders = null;
+    public void displayOrdersForm(PizzaService service) {
+        VBox vBoxOrders = null;
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/OrdersGUIFXML.fxml"));
 
             //vBoxOrders = FXMLLoader.load(getClass().getResource("/fxml/OrdersGUIFXML.fxml"));
             vBoxOrders = loader.load();
-            OrdersGUIController ordersCtrl= loader.getController();
+            OrdersGUIController ordersCtrl = loader.getController();
             ordersCtrl.setService(service, tableNumber);
 
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-     Stage stage = new Stage();
-     stage.setTitle("Table"+getTableNumber()+" order form");
-     stage.setResizable(false);
-     // disable X on the window
-     stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-      @Override
-     public void handle(WindowEvent event) {
-         // consume event
-         event.consume();
+        Stage stage = new Stage();
+        stage.setTitle("Table" + getTableNumber() + " order form");
+        stage.setResizable(false);
+        // disable X on the window
+        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent event) {
+                // consume event
+                event.consume();
             }
         });
-     stage.setScene(new Scene(vBoxOrders));
-     stage.show();
+        stage.setScene(new Scene(vBoxOrders));
+        stage.show();
     }
 }
