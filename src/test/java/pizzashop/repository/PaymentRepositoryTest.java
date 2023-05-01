@@ -1,6 +1,7 @@
 package pizzashop.repository;
 
 import junit.framework.TestCase;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -11,13 +12,11 @@ import pizzashop.model.PaymentType;
 import java.io.File;
 import java.util.List;
 
+import static junit.framework.TestCase.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class PaymentRepositoryTest extends TestCase {
-
-    @Mock
-    private Payment payment;
+public class PaymentRepositoryTest {
 
     private PaymentRepository paymentRepository;
 
@@ -53,7 +52,8 @@ public class PaymentRepositoryTest extends TestCase {
         assertEquals(returnedPayments.size(), 0);
     }
 
-    protected void tearDown() {
+    @After
+    public void tearDown() {
         File myObj = new File("data/test.txt");
         if (myObj.delete()) {
             System.out.println("Deleted the file: " + myObj.getName());
