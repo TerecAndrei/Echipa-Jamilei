@@ -9,10 +9,11 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 public class PaymentRepository implements IPaymentRepository {
-    private static final String filename = "data/payments.txt";
+    private String filename = "data/payments.txt";
     private final List<Payment> paymentList;
 
-    public PaymentRepository() {
+    public PaymentRepository(String filename) {
+        this.filename=filename;
         this.paymentList = new ArrayList<>();
         readPayments();
     }
