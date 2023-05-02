@@ -5,8 +5,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.function.Executable;
-import org.mockito.Mock;
-import pizzashop.model.Payment;
 import pizzashop.model.PaymentType;
 import pizzashop.repository.MenuRepository;
 import pizzashop.repository.PaymentRepository;
@@ -15,9 +13,8 @@ import java.io.File;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
-public class PizzaServiceTestIntegration {
+public class PizzaServiceIntegrationTest {
     private PaymentRepository repoPayments;
 
     private MenuRepository repoMenu;

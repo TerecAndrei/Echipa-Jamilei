@@ -17,7 +17,7 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
-class PizzaServiceTest {
+public class PizzaServiceTest {
 
     PaymentRepositoryMock paymentRepositoryMock;
     PizzaService service;

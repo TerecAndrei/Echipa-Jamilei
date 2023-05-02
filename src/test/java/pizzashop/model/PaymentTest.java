@@ -6,7 +6,7 @@ import pizzashop.model.PaymentType;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class PaymentTest{
+public class PaymentTest{
     @Test
     public void testGetTableNumber() {
         Payment payment = new Payment(1, PaymentType.Cash, 10.0);

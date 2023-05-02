@@ -10,14 +10,11 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import pizzashop.model.Payment;
 import pizzashop.model.PaymentType;
-import pizzashop.repository.IPaymentRepository;
 import pizzashop.repository.MenuRepository;
 import pizzashop.repository.PaymentRepository;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
 
 import static org.junit.Assert.assertThrows;
@@ -25,7 +22,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 import static org.mockito.Mockito.when;
 
-public class PizzaServiceTestMockito {
+public class PizzaServiceMockitoTest {
 
     @Mock
     private PaymentRepository mockedPaymentRepo;
